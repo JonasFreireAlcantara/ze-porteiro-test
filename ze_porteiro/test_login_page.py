@@ -4,7 +4,8 @@ from time import sleep
 from appium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 
-from tests import constants
+
+from ze_porteiro import constants
 
 
 class LoginPageTestCase(unittest.TestCase):
@@ -22,6 +23,7 @@ class LoginPageTestCase(unittest.TestCase):
     
     def test_text_of_advance_button(self):
         self._navigate_from_welcome_to_login_page()
+        edit_text = self.driver.find_element_by_xpath('//*[@class="android.widget.EditText"]')
         button = self.driver.find_element_by_xpath('//*[@class="android.widget.Button"]')
 
         self.assertEqual('AVANÇAR >', button.text)
